@@ -60,23 +60,31 @@ function initReveal(): void {
     return;
   }
 
-  const io = new IntersectionObserver(
-    (entries) => {
-      for (const e of entries) {
-        if (e.isIntersecting) {
-          e.target.classList.add("is-visible");
-          io.unobserve(e.target);
-        }
+  const desktop = window.matchMedia("(min-width: 768px)").matches;
+  /* Desktop: middle ground — enough lead-in to read motion on load, not so early it feels pre-done */
+  const ioOptions = desktop
+    ? { root: null, rootMargin: "0px 0px 4% 0px", threshold: 0.07 }
+    : { root: null, rootMargin: "0px 0px -8% 0px", threshold: 0.08 };
+
+  const io = new IntersectionObserver((entries) => {
+    for (const e of entries) {
+      if (e.isIntersecting) {
+        e.target.classList.add("is-visible");
+        io.unobserve(e.target);
       }
-    },
-    { root: null, rootMargin: "0px 0px -8% 0px", threshold: 0.08 }
-  );
+    }
+  }, ioOptions);
 
   els.forEach((el) => io.observe(el));
 }
 
 function initHeroParallax(): void {
   if (prefersReducedMotion) return;
+
+  /* Scroll-linked transform on the hero image is a common source of jank on phones */
+  const narrow = window.matchMedia("(max-width: 767.98px)").matches;
+  const coarsePointer = window.matchMedia("(pointer: coarse)").matches;
+  if (narrow || coarsePointer) return;
 
   const media = document.querySelector<HTMLElement>("[data-parallax]");
   const img = media?.querySelector<HTMLImageElement>("img");

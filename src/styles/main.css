@@ -179,17 +179,6 @@ a:hover {
     drop-shadow(0 0 1px rgba(0, 0, 0, 0.45));
 }
 
-@media (max-width: 480px) {
-  :root {
-    --header-logo-size: min(13.75rem, 62vw);
-  }
-
-  .site-header {
-    padding-left: calc(var(--space-md) + var(--header-logo-size) + 0.65rem);
-    min-height: 5rem;
-  }
-}
-
 .nav {
   display: flex;
   flex-wrap: wrap;
@@ -267,8 +256,61 @@ body.nav-is-open {
 }
 
 @media (max-width: 767.98px) {
+  :root {
+    /*
+      Logo PNG 560×392 — drive width, let height follow (aspect-ratio backup for WebKit).
+      Avoid min(rem, vw) on height: tiny vw caps made the mark illegible on narrow phones.
+    */
+    --header-logo-w: min(14.5rem, calc(100vw - 5.5rem));
+    --header-logo-pad-y: 0.2rem;
+    /* Logo band height (toggle centered on this, hero/nav offset) */
+    --header-logo-h: calc(var(--header-logo-w) * 392 / 560);
+    --header-logo-stack: calc(
+      env(safe-area-inset-top, 0px) + (2 * var(--header-logo-pad-y)) + var(--header-logo-h)
+    );
+  }
+
+  html {
+    scroll-behavior: auto;
+    scroll-padding-top: calc(var(--header-logo-stack) + 0.35rem);
+  }
+
   .site-header {
-    padding-right: calc(var(--space-md) + 3.25rem);
+    /* Block layout avoids sole flex item + flex-end “centering” / odd gaps */
+    display: block;
+    min-height: 0;
+    height: auto;
+    padding: 0;
+    padding-top: calc(env(safe-area-inset-top, 0px) + var(--header-logo-pad-y));
+    padding-bottom: var(--header-logo-pad-y);
+    padding-left: max(0.35rem, env(safe-area-inset-left, 0px));
+    padding-right: calc(max(0.55rem, env(safe-area-inset-right, 0px)) + 3.35rem);
+    background: var(--bg-deep);
+    border-bottom: 1px solid var(--line);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    box-shadow: none;
+    overflow: visible;
+  }
+
+  .site-header__logo {
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    display: block;
+    width: fit-content;
+    max-width: 100%;
+    margin: 0;
+    text-align: left;
+  }
+
+  .site-header__logo img {
+    display: block;
+    width: var(--header-logo-w);
+    max-width: none;
+    height: auto;
+    filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.45)) drop-shadow(0 0 1px rgba(0, 0, 0, 0.35));
   }
 
   .nav-toggle {
@@ -278,8 +320,11 @@ body.nav-is-open {
     align-items: center;
     gap: 7px;
     position: fixed;
-    top: max(0.55rem, env(safe-area-inset-top, 0px));
-    right: max(0.65rem, env(safe-area-inset-right, 0px));
+    /* Center on the logo strip so it lines up with the mark */
+    top: calc(
+      env(safe-area-inset-top, 0px) + var(--header-logo-pad-y) + (var(--header-logo-h) * 0.5) - 26px
+    );
+    right: max(0.55rem, env(safe-area-inset-right, 0px));
     z-index: 70;
     width: 52px;
     height: 52px;
@@ -349,7 +394,7 @@ body.nav-is-open {
     height: 100dvh;
     height: 100vh;
     margin: 0;
-    padding: calc(4.85rem + env(safe-area-inset-top, 0px)) 1.25rem
+    padding: calc(var(--header-logo-stack) + 0.7rem) 1.25rem
       calc(1.35rem + env(safe-area-inset-bottom, 0px)) 1.1rem;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -458,6 +503,12 @@ body.nav-is-open {
   .nav .nav__links a:focus-visible {
     color: var(--accent-hot);
     border-left-color: var(--accent-hot);
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --header-logo-w: min(13rem, calc(100vw - 5rem));
   }
 }
 
@@ -1069,6 +1120,41 @@ h2.section__kicker--display {
     transition-delay: 0.39s;
   }
 
+}
+
+/* Desktop menu: stagger between “one big wave” and the old 8-step crawl */
+@media (min-width: 768px) and (prefers-reduced-motion: no-preference) {
+  .menu-grid .menu-card.reveal:nth-child(1) {
+    transition-delay: 0s;
+  }
+
+  .menu-grid .menu-card.reveal:nth-child(2) {
+    transition-delay: 0.05s;
+  }
+
+  .menu-grid .menu-card.reveal:nth-child(3) {
+    transition-delay: 0.1s;
+  }
+
+  .menu-grid .menu-card.reveal:nth-child(4) {
+    transition-delay: 0.13s;
+  }
+
+  .menu-grid .menu-card.reveal:nth-child(5) {
+    transition-delay: 0.16s;
+  }
+
+  .menu-grid .menu-card.reveal:nth-child(6) {
+    transition-delay: 0.19s;
+  }
+
+  .menu-grid .menu-card.reveal:nth-child(7) {
+    transition-delay: 0.22s;
+  }
+
+  .menu-grid .menu-card.reveal:nth-child(8) {
+    transition-delay: 0.25s;
+  }
 }
 
 @media (min-width: 768px) {
@@ -1746,6 +1832,20 @@ h2.section__kicker--display {
   }
 }
 
+@media (min-width: 768px) and (prefers-reduced-motion: no-preference) {
+  .process__steps .reveal:nth-child(1) {
+    transition-delay: 0.07s;
+  }
+
+  .process__steps .reveal:nth-child(2) {
+    transition-delay: 0.14s;
+  }
+
+  .process__steps .reveal:nth-child(3) {
+    transition-delay: 0.21s;
+  }
+}
+
 /* ——— Locations ——— */
 .loc-grid {
   display: grid;
@@ -2107,6 +2207,43 @@ h2.section__kicker--display {
 .reveal.is-visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+@media (min-width: 768px) and (prefers-reduced-motion: no-preference) {
+  .reveal {
+    transform: translate3d(0, 1.05rem, 0);
+    transition:
+      opacity 0.9s cubic-bezier(0.2, 1, 0.34, 1),
+      transform 0.9s cubic-bezier(0.2, 1, 0.34, 1);
+  }
+
+  .reveal.is-visible {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* Lighter scroll effects on phones: no parallax (see main.ts) */
+@media (max-width: 767.98px) {
+  .hero__media img {
+    will-change: auto;
+  }
+}
+
+@media (max-width: 767.98px) and (prefers-reduced-motion: no-preference) {
+  .reveal {
+    transform: none;
+    opacity: 0;
+    transition: opacity 0.32s ease;
+  }
+
+  .reveal.is-visible {
+    transform: none;
+  }
+
+  .menu-grid .menu-card.reveal:nth-child(n),
+  .process__steps .reveal:nth-child(n) {
+    transition-delay: 0s;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
