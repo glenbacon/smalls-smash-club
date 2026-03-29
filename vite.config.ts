@@ -1,7 +1,7 @@
 import { defineConfig } from "vite";
 
 export default defineConfig({
-  base: "./",
+  /* Root deploy (Netlify, etc.); default "/" keeps /assets and /images URLs reliable */
   server: {
     open: true,
   },
