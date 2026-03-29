@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "preview:open": "vite build && vite preview --open",
     "logo:strip-checker": "node scripts/strip-logo-checker.mjs",
-    "logo:trim": "node scripts/trim-logo.mjs"
+    "logo:trim": "node scripts/trim-logo.mjs",
+    "favicon": "node scripts/generate-favicon.mjs"
   },
   "devDependencies": {
     "sharp": "^0.33.5",
