@@ -1609,7 +1609,7 @@ h2.section__kicker--display {
   max-height: 7.5rem;
 }
 
-/* Landscape art with dead space — cap by width so it matches the column rhythm */
+/* Bag + can illustration, transparent PNG — cap to column rhythm */
 .beer-brand__logo--mystery {
   max-width: 11.5rem;
   max-height: 5.75rem;
