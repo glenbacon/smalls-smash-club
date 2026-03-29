@@ -30,6 +30,8 @@
 }
 
 html {
+  /* Same as body — avoids white flashes when iOS rubber-bands past the page */
+  background-color: var(--bg-deep);
   scroll-behavior: smooth;
   scroll-padding-top: 6rem;
 }
@@ -262,11 +264,13 @@ body.nav-is-open {
       Avoid min(rem, vw) on height: tiny vw caps made the mark illegible on narrow phones.
     */
     --header-logo-w: min(14.5rem, calc(100vw - 5.5rem));
-    --header-logo-pad-y: 0.2rem;
-    /* Logo band height (toggle centered on this, hero/nav offset) */
+    --header-logo-pad-top: 0.18rem;
+    --header-logo-pad-bottom: 0.06rem;
+    /* Logo band height (toggle + hero/nav offset) */
     --header-logo-h: calc(var(--header-logo-w) * 392 / 560);
     --header-logo-stack: calc(
-      env(safe-area-inset-top, 0px) + (2 * var(--header-logo-pad-y)) + var(--header-logo-h)
+      env(safe-area-inset-top, 0px) + var(--header-logo-pad-top) + var(--header-logo-h) +
+        var(--header-logo-pad-bottom)
     );
   }
 
@@ -281,8 +285,8 @@ body.nav-is-open {
     min-height: 0;
     height: auto;
     padding: 0;
-    padding-top: calc(env(safe-area-inset-top, 0px) + var(--header-logo-pad-y));
-    padding-bottom: var(--header-logo-pad-y);
+    padding-top: calc(env(safe-area-inset-top, 0px) + var(--header-logo-pad-top));
+    padding-bottom: var(--header-logo-pad-bottom);
     padding-left: max(0.35rem, env(safe-area-inset-left, 0px));
     padding-right: calc(max(0.55rem, env(safe-area-inset-right, 0px)) + 3.35rem);
     background: var(--bg-deep);
@@ -322,7 +326,7 @@ body.nav-is-open {
     position: fixed;
     /* Center on the logo strip so it lines up with the mark */
     top: calc(
-      env(safe-area-inset-top, 0px) + var(--header-logo-pad-y) + (var(--header-logo-h) * 0.5) - 26px
+      env(safe-area-inset-top, 0px) + var(--header-logo-pad-top) + (var(--header-logo-h) * 0.5) - 26px
     );
     right: max(0.55rem, env(safe-area-inset-right, 0px));
     z-index: 70;
@@ -391,8 +395,9 @@ body.nav-is-open {
     right: 0;
     z-index: 65;
     width: min(21.5rem, 91vw);
+    /* Don’t override with 100vh — on iOS it fights dvh and can leave a gap line */
     height: 100dvh;
-    height: 100vh;
+    max-height: 100dvh;
     margin: 0;
     padding: calc(var(--header-logo-stack) + 0.7rem) 1.25rem
       calc(1.35rem + env(safe-area-inset-bottom, 0px)) 1.1rem;
@@ -713,6 +718,9 @@ body.nav-is-open {
 
 @media (max-width: 767.98px) {
   .hero {
+    /* svh stays stable as the URL bar hides/shows; dvh reflows and causes top-of-page jank */
+    min-height: 100vh;
+    min-height: 100svh;
     padding-bottom: calc(var(--space-lg) + env(safe-area-inset-bottom, 0px));
   }
 
