@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<!--
+  Do not open this file directly (double-click / file://). Browsers cannot load /src/main.ts or /images/... that way.
+  From this folder run:  npm install  then  npm run dev
+  Or double-click RUN_DEV.bat (Windows). Site: http://localhost:5173
+  Production preview after build: npm run preview:open
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Small’s Smash Club — smash burgers, beef tallow fries, and craft beer. San Clemente &amp; Laguna Beach."
+    />
+    <title>Small's Smash Club | Smash Burgers</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Manufacturing+Consent&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="grain-overlay" aria-hidden="true"></div>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <a class="site-header__logo" href="#main" aria-label="Small's Smash Club home">
+        <img src="/images/logo.png" alt="Small's Smash Club" width="560" height="392" />
+      </a>
+      <button
+        type="button"
+        class="nav-toggle"
+        id="nav-toggle"
+        aria-expanded="false"
+        aria-controls="primary-nav"
+        aria-label="Open menu"
+      >
+        <span class="nav-toggle__bar" aria-hidden="true"></span>
+        <span class="nav-toggle__bar" aria-hidden="true"></span>
+        <span class="nav-toggle__bar" aria-hidden="true"></span>
+      </button>
+      <div class="nav-backdrop" id="nav-backdrop" aria-hidden="true"></div>
+      <nav class="nav" id="primary-nav" aria-label="Primary">
+        <header class="nav__panel-head">
+          <span class="nav__panel-rule" aria-hidden="true"></span>
+          <p class="nav__panel-kicker font-display">Jump to</p>
+          <p class="nav__panel-tagline font-accent">Crispy edges. No apologies.</p>
+        </header>
+        <div class="nav__links">
+          <a href="#about">Story</a>
+          <a href="#menu">Menu</a>
+          <a href="#process">Process</a>
+          <a href="#locations">Locations</a>
+          <a href="#social">Wild</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="hero" aria-label="Introduction">
+        <div class="hero__media" data-parallax>
+          <img
+            src="/images/hero-smash.jpg"
+            alt="Close-up of a smash burger with crispy edges, cheese, and sauce"
+            width="1920"
+            height="1280"
+            fetchpriority="high"
+          />
+        </div>
+        <div class="hero__veil" aria-hidden="true"></div>
+        <div class="hero__vignette" aria-hidden="true"></div>
+        <div class="hero__inner">
+          <h1 class="hero__title font-display">Crispy edges.<br />No apologies.</h1>
+          <p class="hero__lede">
+            Smash burgers, Beef tallow fries and Craft Beer.
+          </p>
+          <div class="hero__actions">
+            <a
+              class="btn"
+              href="https://www.toasttab.com/local/order/smalls-smash-club-641-camino-de-los-mares"
+              target="_blank"
+              rel="noreferrer noopener"
+              >Order now</a
+            >
+            <a class="btn btn--ghost" href="https://www.smallssmashclub.com/menu" target="_blank" rel="noreferrer noopener"
+              >Full menu</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="section section--scene section--about" aria-labelledby="about-heading">
+        <div class="wrap about__wrap">
+          <div class="about__grid">
+            <figure class="about__figure reveal">
+              <div class="about__frame">
+                <img
+                  src="/images/jordan.jpg"
+                  alt="Jordan Small at the counter with smash burgers and fries, Small’s Smash Club, San Clemente."
+                  width="1200"
+                  height="1600"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            </figure>
+            <div class="about__main reveal">
+              <div class="about__masthead" aria-hidden="true">
+                <div class="about__masthead-rule"></div>
+              </div>
+              <div class="about__prose">
+                <h2 class="about__impact about__impact--hero font-display" id="about-heading">
+                  Small’s didn’t start in a boardroom.
+                </h2>
+                <p class="about__hero-follow">It started in a backyard.</p>
+
+                <p class="about__tight">2020. Traeger grill. Nothing to do but figure out how to get the perfect crust.</p>
+
+                <div class="about__group">
+                  <p class="about__tight about__tight--flush">
+                    Jordan Small spent 15 years as a pro snowboarder — Bear Mountain, street rails, chasing it every day.
+                  </p>
+                  <p class="about__tight about__tight--flush">
+                    When everything shut down, he picked up a spatula and didn’t put it down.
+                  </p>
+                </div>
+
+                <p class="about__tight">Thousands of patties later, something clicked.</p>
+
+                <div class="about__group">
+                  <p class="about__tight about__tight--flush">
+                    Before this spot ever opened, Small’s was popping up all over SoCal — breweries, parking lots,
+                    wherever there was a flat-top and a line.
+                  </p>
+                  <p class="about__tight about__tight--flush">
+                    Over 30,000 burgers in. Same goal every time: crispier edges, better bite, no shortcuts.
+                  </p>
+                </div>
+
+                <p class="about__impact about__impact--mid font-display">This isn’t a concept. It’s reps.</p>
+
+                <p class="about__tight">No fillers. No ego. Just burgers.</p>
+
+                <div class="about__group">
+                  <p class="about__tight about__tight--flush">
+                    Beef tallow fries. House sauce. Patties smashed hard enough to get that edge right every time.
+                  </p>
+                  <p class="about__tight about__tight--flush">You want fancy, go somewhere else.</p>
+                </div>
+
+                <div class="about__close">
+                  <p class="about__signoff font-accent">This is Small’s.</p>
+                  <p class="about__tag">If you know, you know.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="menu" class="section section--panel section--scene">
+        <div class="wrap">
+          <header class="section__head reveal">
+            <p class="section__kicker">Line-up</p>
+            <h2 class="section__title font-display">What we smash</h2>
+            <div class="section__rule section__rule--accent" aria-hidden="true"></div>
+          </header>
+
+          <div class="menu-grid">
+            <article class="menu-card reveal">
+              <div class="menu-card__visual menu-card__visual--edge-fade">
+                <img src="/images/smashsingle.jpg" alt="" loading="lazy" />
+              </div>
+              <div class="menu-card__body">
+                <h3 class="menu-card__name">Single</h3>
+                <p class="menu-card__price">$9</p>
+              </div>
+            </article>
+            <article class="menu-card reveal">
+              <div class="menu-card__visual menu-card__visual--edge-fade">
+                <img src="/images/smashdouble.jpg" alt="" loading="lazy" />
+              </div>
+              <div class="menu-card__body">
+                <h3 class="menu-card__name">Double</h3>
+                <p class="menu-card__price">$12</p>
+              </div>
+            </article>
+            <article class="menu-card reveal">
+              <div class="menu-card__visual menu-card__visual--edge-fade">
+                <img src="/images/smashdouble.jpg" alt="" loading="lazy" />
+              </div>
+              <div class="menu-card__body">
+                <h3 class="menu-card__name">Triple</h3>
+                <p class="menu-card__price">$15</p>
+              </div>
+            </article>
+            <article class="menu-card reveal">
+              <div class="menu-card__visual">
+                <img
+                  src="/images/spreadoffood.jpg"
+                  alt=""
+                  style="object-position: 18% 88%"
+                  loading="lazy"
+                />
+              </div>
+              <div class="menu-card__body">
+                <h3 class="menu-card__name">Fries</h3>
+                <p class="menu-card__price">$4</p>
+              </div>
+            </article>
+            <article class="menu-card reveal">
+              <div class="menu-card__visual menu-card__visual--edge-fade">
+                <img src="/images/onionrings.jpg" alt="" loading="lazy" />
+              </div>
+              <div class="menu-card__body">
+                <h3 class="menu-card__name">Onion rings</h3>
+                <p class="menu-card__price">$6</p>
+              </div>
+            </article>
+            <article class="menu-card reveal">
+              <div class="menu-card__visual menu-card__visual--edge-fade">
+                <img src="/images/grilledcheese.jpg" alt="" loading="lazy" />
+              </div>
+              <div class="menu-card__body">
+                <h3 class="menu-card__name">Grilled cheese</h3>
+                <p class="menu-card__price">Add-on</p>
+              </div>
+            </article>
+            <article class="menu-card menu-card--span-full menu-card--extras reveal">
+              <div class="menu-card__body menu-card__body--extras">
+                <div class="menu-extras">
+                  <h3 class="menu-extras__title font-accent">Extras</h3>
+                  <ul class="menu-extras__list">
+                    <li class="menu-extras__item">
+                      <span class="menu-extras__name">Combo</span>
+                      <span class="menu-extras__price">+$6</span>
+                    </li>
+                    <li class="menu-extras__item">
+                      <span class="menu-extras__name">Extra cheese</span>
+                      <span class="menu-extras__price">$1</span>
+                    </li>
+                    <li class="menu-extras__item">
+                      <span class="menu-extras__name">Jalapeño</span>
+                      <span class="menu-extras__price">$1.50</span>
+                    </li>
+                    <li class="menu-extras__item">
+                      <span class="menu-extras__name">Extra patty</span>
+                      <span class="menu-extras__price">$2</span>
+                    </li>
+                    <li class="menu-extras__item">
+                      <span class="menu-extras__name">Raw onion</span>
+                      <span class="menu-extras__price">$0.50</span>
+                    </li>
+                    <li class="menu-extras__item">
+                      <span class="menu-extras__name">Fountain drink</span>
+                      <span class="menu-extras__price">$3</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+            <article class="menu-card menu-card--span-full menu-card--beer reveal">
+              <div class="menu-card__visual menu-card__visual--wide">
+                <img
+                  src="/images/spreadoffood.jpg"
+                  alt=""
+                  style="object-position: 50% 35%"
+                  loading="lazy"
+                />
+              </div>
+              <div class="menu-card__body menu-card__body--beer">
+                <h3 class="menu-card__name">Beer &amp; wine</h3>
+                <p class="beer-menu__intro">
+                  Rotating draft from our friends below.
+                </p>
+                <div class="beer-brands">
+                  <section class="beer-brand" aria-labelledby="beer-brand-smalls">
+                    <h4 id="beer-brand-smalls" class="sr-only">Small's Smash Club</h4>
+                    <div class="beer-brand__logo-wrap">
+                      <img
+                        class="beer-brand__logo beer-brand__logo--smalls"
+                        src="/images/logo.png"
+                        alt=""
+                        width="280"
+                        height="196"
+                        loading="lazy"
+                      />
+                    </div>
+                    <ul class="beer-list">
+                      <li class="beer-item">
+                        <div class="beer-item__info">
+                          <span class="beer-item__name">Small's Coast</span>
+                          <span class="beer-item__meta">West Coast IPA · 6.9% ABV</span>
+                        </div>
+                        <div class="beer-item__prices">
+                          <div class="beer-item__price">
+                            <span class="beer-item__u">Pint</span>
+                            <span class="beer-item__amt">$9</span>
+                          </div>
+                          <div class="beer-item__price">
+                            <span class="beer-item__u">½ pint</span>
+                            <span class="beer-item__amt">$6</span>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="beer-item">
+                        <div class="beer-item__info">
+                          <span class="beer-item__name">Small's Loco</span>
+                          <span class="beer-item__meta">Hard seltzer · 5.5% ABV</span>
+                        </div>
+                        <div class="beer-item__prices">
+                          <div class="beer-item__price beer-item__price--muted">
+                            <span class="beer-item__u">Pint</span>
+                            <span class="beer-item__amt">—</span>
+                          </div>
+                          <div class="beer-item__price">
+                            <span class="beer-item__u">½ pint</span>
+                            <span class="beer-item__amt">$6</span>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </section>
+                  <section class="beer-brand" aria-labelledby="beer-brand-rom">
+                    <h4 id="beer-brand-rom" class="sr-only">Rōm Beer Co.</h4>
+                    <div class="beer-brand__logo-wrap">
+                      <img
+                        class="beer-brand__logo beer-brand__logo--rom"
+                        src="/images/rom-logo.png"
+                        alt=""
+                        width="400"
+                        height="200"
+                        loading="lazy"
+                      />
+                    </div>
+                    <ul class="beer-list">
+                      <li class="beer-item">
+                        <div class="beer-item__info">
+                          <span class="beer-item__name">Horizons</span>
+                          <span class="beer-item__meta">NZ pale ale · 5.6% ABV</span>
+                        </div>
+                        <div class="beer-item__prices">
+                          <div class="beer-item__price">
+                            <span class="beer-item__u">Pint</span>
+                            <span class="beer-item__amt">$8</span>
+                          </div>
+                          <div class="beer-item__price">
+                            <span class="beer-item__u">½ pint</span>
+                            <span class="beer-item__amt">$5</span>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="beer-item">
+                        <div class="beer-item__info">
+                          <span class="beer-item__name">Lo-Vis</span>
+                          <span class="beer-item__meta">Hazy IPA · 7% ABV</span>
+                        </div>
+                        <div class="beer-item__prices">
+                          <div class="beer-item__price">
+                            <span class="beer-item__u">Pint</span>
+                            <span class="beer-item__amt">$9</span>
+                          </div>
+                          <div class="beer-item__price">
+                            <span class="beer-item__u">½ pint</span>
+                            <span class="beer-item__amt">$6</span>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </section>
+                  <section class="beer-brand" aria-labelledby="beer-brand-lm">
+                    <h4 id="beer-brand-lm" class="sr-only">Los Molinos Beer</h4>
+                    <div class="beer-brand__logo-wrap">
+                      <img
+                        class="beer-brand__logo beer-brand__logo--molinos"
+                        src="/images/los-molinos-logo.svg"
+                        alt=""
+                        width="200"
+                        height="200"
+                        loading="lazy"
+                      />
+                    </div>
+                    <ul class="beer-list">
+                      <li class="beer-item">
+                        <div class="beer-item__info">
+                          <span class="beer-item__name">Surf Ghetto</span>
+                          <span class="beer-item__meta">Lager · 5% ABV</span>
+                        </div>
+                        <div class="beer-item__prices">
+                          <div class="beer-item__price">
+                            <span class="beer-item__u">Pint</span>
+                            <span class="beer-item__amt">$8</span>
+                          </div>
+                          <div class="beer-item__price">
+                            <span class="beer-item__u">½ pint</span>
+                            <span class="beer-item__amt">$5</span>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="beer-item">
+                        <div class="beer-item__info">
+                          <span class="beer-item__name">Chancho</span>
+                          <span class="beer-item__meta">Mexican lager · 5% ABV</span>
+                        </div>
+                        <div class="beer-item__prices">
+                          <div class="beer-item__price">
+                            <span class="beer-item__u">Pint</span>
+                            <span class="beer-item__amt">$8</span>
+                          </div>
+                          <div class="beer-item__price">
+                            <span class="beer-item__u">½ pint</span>
+                            <span class="beer-item__amt">$5</span>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="beer-item">
+                        <div class="beer-item__info">
+                          <span class="beer-item__name">Mexican Candy</span>
+                          <span class="beer-item__meta">Hard seltzer · 5% ABV</span>
+                        </div>
+                        <div class="beer-item__prices">
+                          <div class="beer-item__price">
+                            <span class="beer-item__u">Pint</span>
+                            <span class="beer-item__amt">$9</span>
+                          </div>
+                          <div class="beer-item__price">
+                            <span class="beer-item__u">½ pint</span>
+                            <span class="beer-item__amt">$6</span>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="beer-item">
+                        <div class="beer-item__info">
+                          <span class="beer-item__name">Tres Molinos</span>
+                          <span class="beer-item__meta">Triple IPA · 10.5% ABV</span>
+                        </div>
+                        <div class="beer-item__prices">
+                          <div class="beer-item__price">
+                            <span class="beer-item__u">Pint</span>
+                            <span class="beer-item__amt">$9</span>
+                          </div>
+                          <div class="beer-item__price">
+                            <span class="beer-item__u">½ pint</span>
+                            <span class="beer-item__amt">$6</span>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </section>
+                  <section class="beer-brand beer-brand--mystery" aria-labelledby="beer-brand-mystery">
+                    <h4 id="beer-brand-mystery" class="sr-only">Mystery beer</h4>
+                    <div class="beer-brand__logo-wrap">
+                      <img
+                        class="beer-brand__logo beer-brand__logo--mystery"
+                        src="/images/mysterybeer.png"
+                        alt=""
+                        width="600"
+                        height="400"
+                        loading="lazy"
+                      />
+                    </div>
+                    <ul class="beer-list">
+                      <li class="beer-item beer-item--single-price">
+                        <div class="beer-item__info">
+                          <span class="beer-item__name">Mystery beer</span>
+                          <span class="beer-item__meta">Brown bagger · rotating</span>
+                        </div>
+                        <div class="beer-item__prices beer-item__prices--one">
+                          <div class="beer-item__price">
+                            <span class="beer-item__u">12 oz</span>
+                            <span class="beer-item__amt">$5</span>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </section>
+                </div>
+                <section class="wine-panel" aria-labelledby="wine-panel-title">
+                  <div class="wine-panel__grid">
+                    <div class="wine-panel__logo-wrap">
+                      <img
+                        class="wine-panel__wordmark"
+                        src="/images/wonderwerk-wordmark.svg"
+                        alt=""
+                        width="656"
+                        height="79"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </div>
+                    <div class="wine-panel__main">
+                      <div class="wine-panel__head beer-item">
+                        <div class="beer-item__info">
+                          <h4 id="wine-panel-title" class="menu-card__name wine-panel__title">Natural wine</h4>
+                          <p class="wine-panel__intro">
+                            Wonder Werks, California — by the glass or bottle. Lineup rotates; ask at the window.
+                          </p>
+                        </div>
+                        <div class="beer-item__prices" role="group" aria-label="Wine pricing">
+                          <div class="beer-item__price">
+                            <span class="beer-item__u">Glass</span>
+                            <span class="beer-item__amt">$12</span>
+                          </div>
+                          <div class="beer-item__price">
+                            <span class="beer-item__u">Bottle</span>
+                            <span class="beer-item__amt">$45</span>
+                          </div>
+                        </div>
+                      </div>
+                      <ul class="wine-list">
+                        <li class="wine-item">
+                          <h5 class="wine-item__name">Big Orange</h5>
+                          <p class="wine-item__meta">Natural orange wine · Wonder Werks, CA</p>
+                          <p class="wine-item__notes">Taste: stone fruit, tangerine, &amp; herbal nuances.</p>
+                        </li>
+                        <li class="wine-item">
+                          <h5 class="wine-item__name">Sol y Mar</h5>
+                          <p class="wine-item__meta">Natural sparkling wine · Wonder Werks, CA</p>
+                          <p class="wine-item__notes">
+                            Taste: pineapple, pomelo, &amp; cucumber. Like California in a glass.
+                          </p>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </section>
+              </div>
+            </article>
+          </div>
+          <p class="menu-footnote reveal">San Clemente pricing. Specials rotate.</p>
+        </div>
+      </section>
+
+      <section id="process" class="section section--scene">
+        <div class="wrap process">
+          <div class="process__visual reveal">
+            <img
+              src="/images/process-grill.jpg"
+              alt="Jordan Small working the flat-top in gloves"
+              width="1200"
+              height="1580"
+              loading="lazy"
+            />
+          </div>
+          <div>
+            <header class="section__head reveal">
+              <p class="section__kicker">Flat-top</p>
+              <h2 class="section__title font-display">The build</h2>
+              <div class="section__rule section__rule--accent" aria-hidden="true"></div>
+            </header>
+            <ol class="process__steps">
+              <li class="reveal">
+                <h3>Press</h3>
+                <p>
+                  Cold beef meets screaming steel. Maximum weight. If you don’t see the lace, we didn’t do it
+                  right.
+                </p>
+              </li>
+              <li class="reveal">
+                <h3>Stack</h3>
+                <p>
+                  Develop the crust, then drop the cloak. Sharp cheese finds every crevice. The edges stay loud;
+                  the middle stays legendary.
+                </p>
+              </li>
+              <li class="reveal">
+                <h3>Send</h3>
+                <p>House sauce, pickles for acid, off the iron and into your hand. Eat it while it’s still shouting.</p>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section id="locations" class="section section--panel section--scene">
+        <div class="wrap">
+          <header class="section__head reveal">
+            <p class="section__kicker">Post up</p>
+            <h2 class="section__title font-display">Two spots</h2>
+            <div class="section__rule section__rule--accent" aria-hidden="true"></div>
+          </header>
+          <div class="loc-grid">
+            <article class="loc-card reveal">
+              <p class="loc-card__label">Open now</p>
+              <h3 class="font-display">San Clemente</h3>
+              <p>
+                <a
+                  class="loc-card__address"
+                  href="https://www.google.com/maps/search/?api=1&amp;query=641+Camino+de+Los+Mares+Suite+C100+San+Clemente+CA"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  aria-label="Open San Clemente address in Google Maps"
+                  >641 Camino de Los Mares, Suite C100<br />San Clemente, CA</a
+                >
+              </p>
+              <div class="loc-card__hours">
+                <p class="loc-card__hours-title">Hours</p>
+                <ul class="loc-card__hours-list">
+                  <li>
+                    <span class="loc-card__hours-day">Monday</span>
+                    <span class="loc-card__hours-time">Closed</span>
+                  </li>
+                  <li>
+                    <span class="loc-card__hours-day">Tuesday</span>
+                    <span class="loc-card__hours-time">11 AM – 8 PM</span>
+                  </li>
+                  <li>
+                    <span class="loc-card__hours-day">Wednesday</span>
+                    <span class="loc-card__hours-time">11 AM – 8 PM</span>
+                  </li>
+                  <li>
+                    <span class="loc-card__hours-day">Thursday</span>
+                    <span class="loc-card__hours-time">11 AM – 8 PM</span>
+                  </li>
+                  <li>
+                    <span class="loc-card__hours-day">Friday</span>
+                    <span class="loc-card__hours-time">11 AM – 9 PM</span>
+                  </li>
+                  <li>
+                    <span class="loc-card__hours-day">Saturday</span>
+                    <span class="loc-card__hours-time">11 AM – 9 PM</span>
+                  </li>
+                  <li>
+                    <span class="loc-card__hours-day">Sunday</span>
+                    <span class="loc-card__hours-time">11 AM – 8 PM</span>
+                  </li>
+                </ul>
+                <p class="loc-card__hours-note">
+                  Same-day updates on
+                  <a href="https://www.instagram.com/smallssmashclub/" target="_blank" rel="noreferrer noopener"
+                    >Instagram</a
+                  >.
+                </p>
+              </div>
+              <div class="loc-card__actions">
+                <a
+                  class="btn"
+                  href="https://www.toasttab.com/local/order/smalls-smash-club-641-camino-de-los-mares"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  >Order pickup</a
+                >
+              </div>
+            </article>
+            <article class="loc-card loc-card--soon reveal">
+              <p class="loc-card__label">Coming soon!</p>
+              <h3 class="font-display">Laguna Beach</h3>
+              <p>
+                <a
+                  class="loc-card__address"
+                  href="https://www.google.com/maps/search/?api=1&amp;query=2794+Coast+Hwy+Laguna+Beach+CA+92651"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  aria-label="Open Laguna Beach address in Google Maps"
+                  >2794 Coast Hwy<br />Laguna Beach, CA 92651</a
+                >
+              </p>
+              <p>
+                South Laguna — former Dizz’s As Is. Patio, ocean views, full liquor, two bars. Respect to the Pitz
+                family.
+              </p>
+              <p>Details on <a href="https://www.instagram.com/smallssmashclub/">@smallssmashclub</a>.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="social" class="section section--scene section--social">
+        <div class="wrap">
+          <header class="section__head reveal">
+            <p class="section__kicker">The room</p>
+            <h2 class="section__title font-display section__title--wild">In the wild</h2>
+            <p class="section__sub">If you know, you’re already in line.</p>
+            <div class="section__rule section__rule--accent" aria-hidden="true"></div>
+          </header>
+          <div class="social-strip reveal" data-social-strip aria-hidden="true">
+            <div class="social-strip__cell">
+              <div class="social-strip__inner" style="background-image: url(/images/smashdouble.jpg); background-position: 48% 45%"></div>
+            </div>
+            <div class="social-strip__cell">
+              <div class="social-strip__inner" style="background-image: url(/images/onionrings.jpg); background-position: 50% 48%"></div>
+            </div>
+            <div class="social-strip__cell">
+              <div class="social-strip__inner" style="background-image: url(/images/spreadoffood.jpg); background-position: 45% 55%"></div>
+            </div>
+            <div class="social-strip__cell">
+              <div class="social-strip__inner" style="background-image: url(/images/grilledcheese.jpg); background-position: 50% 48%"></div>
+            </div>
+            <div class="social-strip__cell">
+              <div class="social-strip__inner" style="background-image: url(/images/smashsingle.jpg); background-position: 52% 45%"></div>
+            </div>
+            <div class="social-strip__cell">
+              <div class="social-strip__inner" style="background-image: url(/images/spreadoffood.jpg); background-position: 70% 35%"></div>
+            </div>
+          </div>
+          <p class="social-proof__cta reveal">
+            <a href="https://www.instagram.com/smallssmashclub/" target="_blank" rel="noreferrer noopener"
+              >@smallssmashclub</a
+            >
+          </p>
+        </div>
+      </section>
+
+      <footer id="contact" class="site-footer site-footer--scene">
+        <div class="wrap footer-grid">
+          <div class="reveal footer-brand-block">
+            <p class="footer-brand">Small's</p>
+            <p class="footer-tagline">
+              Built on the flat-top.<br />
+              Not in a boardroom.
+            </p>
+            <p class="footer-note">If you know, you know.</p>
+          </div>
+          <div class="reveal">
+            <ul class="footer-list">
+              <li>
+                <strong>Email</strong>
+                <a href="mailto:hello@smallssmashclub.com">hello@smallssmashclub.com</a>
+              </li>
+              <li>
+                <strong>Phone</strong>
+                <a href="tel:+19498994756">949-899-4756</a>
+              </li>
+              <li>
+                <strong>Instagram</strong>
+                <a href="https://www.instagram.com/smallssmashclub/" target="_blank" rel="noreferrer noopener"
+                  >@smallssmashclub</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="reveal">
+            <ul class="footer-list">
+              <li>
+                <strong>San Clemente</strong>
+                <a
+                  class="footer-list__address"
+                  href="https://www.google.com/maps/search/?api=1&amp;query=641+Camino+de+Los+Mares+Suite+C100+San+Clemente+CA"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  aria-label="Open San Clemente address in Google Maps"
+                  >641 Camino de Los Mares, Suite C100<br />
+                  San Clemente, CA</a
+                >
+              </li>
+              <li>
+                <strong>Laguna Beach</strong>
+                <span class="footer-list__status">Coming soon</span>
+                <a
+                  class="footer-list__address"
+                  href="https://www.google.com/maps/search/?api=1&amp;query=2794+Coast+Hwy+Laguna+Beach+CA+92651"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  aria-label="Open Laguna Beach address in Google Maps"
+                  >2794 Coast Hwy<br />
+                  Laguna Beach, CA 92651</a
+                >
+              </li>
+              <li>
+                <strong>Catering &amp; pop-ups</strong>
+                <a href="mailto:hello@smallssmashclub.com?subject=Catering%20inquiry">Email</a> — dates &amp; headcount.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+    </main>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
