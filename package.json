@@ -9,9 +9,11 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "preview:open": "vite build && vite preview --open",
-    "logo:strip-checker": "node scripts/strip-logo-checker.mjs"
+    "logo:strip-checker": "node scripts/strip-logo-checker.mjs",
+    "logo:trim": "node scripts/trim-logo.mjs"
   },
   "devDependencies": {
+    "sharp": "^0.33.5",
     "typescript": "~5.7.2",
     "vite": "^6.2.0"
   }

@@ -260,14 +260,13 @@ body.nav-is-open {
 @media (max-width: 767.98px) {
   :root {
     /*
-      Logo PNG 560×392 — drive width, let height follow (aspect-ratio backup for WebKit).
-      Avoid min(rem, vw) on height: tiny vw caps made the mark illegible on narrow phones.
+      Logo layout uses full PNG canvas (width + height: auto). Re-trim with npm run logo:trim
+      if the file changes; keep --header-logo-h in sync with width/height.
     */
-    --header-logo-w: min(14.5rem, calc(100vw - 5.5rem));
-    --header-logo-pad-top: 0.18rem;
-    --header-logo-pad-bottom: 0.06rem;
-    /* Logo band height (toggle + hero/nav offset) */
-    --header-logo-h: calc(var(--header-logo-w) * 392 / 560);
+    --header-logo-w: min(10.75rem, calc(100vw - 5.5rem));
+    --header-logo-pad-top: 0.26rem;
+    --header-logo-pad-bottom: 0.26rem;
+    --header-logo-h: calc(var(--header-logo-w) * 653 / 983);
     --header-logo-stack: calc(
       env(safe-area-inset-top, 0px) + var(--header-logo-pad-top) + var(--header-logo-h) +
         var(--header-logo-pad-bottom)
@@ -287,8 +286,8 @@ body.nav-is-open {
     padding: 0;
     padding-top: calc(env(safe-area-inset-top, 0px) + var(--header-logo-pad-top));
     padding-bottom: var(--header-logo-pad-bottom);
-    padding-left: max(0.35rem, env(safe-area-inset-left, 0px));
-    padding-right: calc(max(0.55rem, env(safe-area-inset-right, 0px)) + 3.35rem);
+    padding-left: max(0.52rem, env(safe-area-inset-left, 0px));
+    padding-right: calc(max(0.6rem, env(safe-area-inset-right, 0px)) + 3.35rem);
     background: var(--bg-deep);
     border-bottom: 1px solid var(--line);
     backdrop-filter: none;
@@ -513,7 +512,7 @@ body.nav-is-open {
 
 @media (max-width: 480px) {
   :root {
-    --header-logo-w: min(13rem, calc(100vw - 5rem));
+    --header-logo-w: min(10rem, calc(100vw - 5rem));
   }
 }
 
@@ -1730,14 +1729,32 @@ h2.section__kicker--display {
   }
 }
 
-@media (max-width: 479px) {
+/* Stacked beer layout (below 640px): match centered brand marks */
+@media (max-width: 639.98px) {
+  .beer-menu__intro {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  .beer-list {
+    align-items: center;
+    width: 100%;
+  }
+
   .beer-item {
     grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .beer-item__info {
+    text-align: center;
   }
 
   .beer-item__prices {
-    justify-content: flex-start;
-    text-align: left;
+    justify-content: center;
+    text-align: center;
   }
 }
 
