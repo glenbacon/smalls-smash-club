@@ -17,10 +17,11 @@
   --space-lg: 3rem;
   --space-xl: 5rem;
   --max: 72rem;
-  /* Hero-sized header logo; used for layout math (nav inset + hero top pad) */
-  --header-logo-size: min(19rem, 70vw);
-  /* Logo asset ~280×196; height ≈ width × 0.7 when displayed full-width */
-  --header-logo-stack: calc(0.75rem + var(--header-logo-size) * 0.72 + var(--space-lg));
+  /* Desktop header logo — capped so the fixed mark doesn’t eat the viewport */
+  --header-logo-size: min(14.25rem, 52vw);
+  /* PNG 983×653 — keep in sync with width/height on <img> */
+  --header-logo-h-desktop: calc(var(--header-logo-size) * 653 / 983);
+  --header-logo-stack: calc(0.75rem + var(--header-logo-h-desktop) + var(--space-lg));
 }
 
 *,
@@ -33,7 +34,8 @@ html {
   /* Same as body — avoids white flashes when iOS rubber-bands past the page */
   background-color: var(--bg-deep);
   scroll-behavior: smooth;
-  scroll-padding-top: 6rem;
+  /* ~compact fixed bar + nav; logo may extend below without enlarging the bar */
+  scroll-padding-top: 6.75rem;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -139,22 +141,21 @@ a:hover {
   left: 0;
   right: 0;
   z-index: 50;
-  min-height: 5.5rem;
+  /* Compact bar; logo is taller and fixed — no backdrop-blur here (avoids smear through PNG alpha). */
+  min-height: 5.75rem;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: flex-end;
   padding: 0.75rem var(--space-md) 1.65rem;
   padding-left: calc(var(--space-md) + var(--header-logo-size) + 1rem);
   overflow: visible;
   background: linear-gradient(
     to bottom,
-    rgba(5, 5, 7, 0.94) 0%,
-    rgba(5, 5, 7, 0.55) 45%,
-    rgba(5, 5, 7, 0.12) 78%,
-    transparent 100%
+    rgba(5, 5, 7, 0.97) 0%,
+    rgba(5, 5, 7, 0.78) 38%,
+    rgba(5, 5, 7, 0.42) 68%,
+    rgba(5, 5, 7, 0) 100%
   );
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
   pointer-events: none;
 }
 
@@ -186,7 +187,8 @@ a:hover {
   flex-wrap: wrap;
   gap: var(--space-xs) clamp(1rem, 2.5vw, 1.35rem);
   justify-content: flex-end;
-  padding-top: 0.5rem;
+  align-content: center;
+  padding-top: 0;
 }
 
 .nav a {
@@ -264,8 +266,8 @@ body.nav-is-open {
       if the file changes; keep --header-logo-h in sync with width/height.
     */
     --header-logo-w: min(10.75rem, calc(100vw - 5.5rem));
-    --header-logo-pad-top: 0.26rem;
-    --header-logo-pad-bottom: 0.26rem;
+    --header-logo-pad-top: 0.4rem;
+    --header-logo-pad-bottom: 0.4rem;
     --header-logo-h: calc(var(--header-logo-w) * 653 / 983);
     --header-logo-stack: calc(
       env(safe-area-inset-top, 0px) + var(--header-logo-pad-top) + var(--header-logo-h) +
